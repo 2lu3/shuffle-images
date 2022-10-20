@@ -1,7 +1,7 @@
 import backgroundImg from "../assets/background.jpg"
 import {Image} from 'mui-image';
 
-export default function BackgroundImage() {
+export default function BackgroundImage(props) {
   return (
     <Image
       src={backgroundImg}
@@ -10,6 +10,7 @@ export default function BackgroundImage() {
       duration={3000}
       fit="cover"
       bgColor="grey"
+      onClick={props.onClick}
     />
   );
 
