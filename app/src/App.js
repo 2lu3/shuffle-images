@@ -1,27 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import Image from 'react-fit-image';
+import {Box} from "@mui/material";
+import BackgroundImage from "./pages/BackgroundImage.jsx"
 
 function App() {
   return (
-    <div className="App">
-      <div>
-        {process.env.PUBLIC_URL}
-      </div>
-      <img src={logo} className="App-logo" alt="logo" />
-      <img src={process.env.PUBLIC_URL + "/logo192.png"} />
-      <Image
-        imgProps={{
-          src: "./logo.svg",
-          alt: "profile",
-          title: "profile"
-        }}
-        width="300px"
-        height="200px"
-        borderRadius="10%"
-      />
-    </div>
+    <Box
+      sx={{
+        width: "100%",
+        height: "100vh",
+      }}>
+      <BackgroundImage />
+    </Box>
   );
 }
 
-export default App;png
+export default App;

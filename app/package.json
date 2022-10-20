@@ -1,11 +1,15 @@
 {
   "name": "app",
   "version": "0.1.0",
-  "homepage": "https://2lu3.github.io/shuffle-images",
+  "homepage": "https://2lu3.github.io/shuffle-images/",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/material": "^5.10.10",
+    "mui-image": "^1.0.7",
     "react-dom": "^18.2.0",
-    "react-fit-image": "^1.0.6",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -14,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deply": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
