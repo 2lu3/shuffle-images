@@ -56,7 +56,7 @@ function App() {
       intervalRef.current = null;
       console.log("stop update");
     }
-  }, []);
+  }, [imageArray]);
   // <WindowImage url="https://picsum.photos/1200/1600"/>
   //<WindowImage src={image} />
   // <Memorized onClick={handleOnClick} />
