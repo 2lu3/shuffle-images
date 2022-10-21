@@ -40,7 +40,7 @@ function App() {
   //const imageArray = Array.from(imageUrlArray2, src => <WindowImage src={src} />);
   const imageArray = Array.from(imageUrlArray2, src => src);
   const [image, setImage] = useState(imageArray[0]);
-  const [isFocused, setIsFocused] = useState(true);
+  //const [isFocused, setIsFocused] = useState(true);
 
   const intervalRef = useRef(null);
 
@@ -48,14 +48,14 @@ function App() {
     if (intervalRef.current == null) {
       intervalRef.current = setInterval(() => {
         setImage(imageArray[getRandomInt(imageArray.length)]);
-        setIsFocused(false);
+        //setIsFocused(false);
         console.log("update");
-      }, 100);
+      }, 400);
       console.log("start update");
     }
     else {
       clearInterval(intervalRef.current);
-      setIsFocused(true);
+      //setIsFocused(true);
       intervalRef.current = null;
       console.log("stop update");
     }
