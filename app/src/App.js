@@ -40,26 +40,41 @@ function App() {
   //const imageArray = Array.from(imageUrlArray2, src => <WindowImage src={src} />);
   const imageArray = Array.from(imageUrlArray2, src => src);
   const [image, setImage] = useState(imageArray[0]);
+  const intervalTime = useRef(1);
+  const isShuffling = useRef(false);
   //const [isFocused, setIsFocused] = useState(true);
 
   const intervalRef = useRef(null);
 
+  const shuffle = () => {
+    intervalRef.current = setTimeout(async () => {
+      setImage(imageArray[getRandomInt(imageArray.length)]);
+      if (intervalTime.current >= 500) {
+        console.log("stop");
+        clearTimeout(intervalRef.current);
+        intervalRef.current = null;
+      }
+      else {
+        shuffle();
+      }
+      if (!isShuffling.current) {
+        intervalTime.current *= 1.2;
+      }
+    }, intervalTime.current);
+  }
+
   const handleOnClick = useCallback(() => {
     if (intervalRef.current == null) {
-      intervalRef.current = setInterval(() => {
-        setImage(imageArray[getRandomInt(imageArray.length)]);
-        //setIsFocused(false);
-        console.log("update");
-      }, 1);
-      console.log("start update");
+      console.log("shuffle start");
+      isShuffling.current = true;
+      intervalTime.current = 1;
+      shuffle();
     }
     else {
-      clearInterval(intervalRef.current);
-      //setIsFocused(true);
-      intervalRef.current = null;
-      console.log("stop update");
+      isShuffling.current = false;
     }
-  }, [imageArray]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // <WindowImage url="https://picsum.photos/1200/1600"/>
   //<WindowImage src={image} />
   // <Memorized onClick={handleOnClick} />
