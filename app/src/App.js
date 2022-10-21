@@ -64,6 +64,17 @@ function App() {
   //<WindowImage src={image} />
   // <Memorized onClick={handleOnClick} />
 
+  //{
+  //        isFocused && <Box sx={{
+  //          width: "100%",
+  //          height: "100%",
+  //          position: "absolute",
+  //          top: "0%",
+  //          left: "0%"
+  //        }}>
+  //          <WindowImage src={image} />
+  //        </Box >
+  //      }
 
   return (
     <Box
@@ -74,25 +85,15 @@ function App() {
       }}
       onClick={handleOnClick}
     >
+
       {
-        isFocused && <Box sx={{
+
+        <Box sx={{
           width: "100%",
           height: "100%",
           position: "absolute",
           top: "0%",
           left: "0%"
-        }}>
-          <WindowImage src={image} />
-        </Box >
-      }
-      {
-        !isFocused &&
-        <Box sx={{
-          width: "20%",
-          height: "80%",
-          position: "absolute",
-          top: "10%",
-          left: "10%"
         }}>
           <WindowImage src={image} />
         </Box >
