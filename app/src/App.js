@@ -50,7 +50,7 @@ function App() {
         setImage(imageArray[getRandomInt(imageArray.length)]);
         //setIsFocused(false);
         console.log("update");
-      }, 400);
+      }, 100);
       console.log("start update");
     }
     else {
