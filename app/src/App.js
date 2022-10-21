@@ -32,14 +32,15 @@ function App() {
     srcIamge8,
     srcIamge9,
   ];
- // const imageUrlArray = [
- //   "https://picsum.photos/1200/1600",
- //   "https://picsum.photos/1200/1600",
- //   "https://picsum.photos/1200/1600"
- // ];
+  // const imageUrlArray = [
+  //   "https://picsum.photos/1200/1600",
+  //   "https://picsum.photos/1200/1600",
+  //   "https://picsum.photos/1200/1600"
+  // ];
   //const imageArray = Array.from(imageUrlArray2, src => <WindowImage src={src} />);
   const imageArray = Array.from(imageUrlArray2, src => src);
   const [image, setImage] = useState(imageArray[0]);
+  const [isFocused, setIsFocused] = useState(true);
 
   const intervalRef = useRef(null);
 
@@ -47,12 +48,14 @@ function App() {
     if (intervalRef.current == null) {
       intervalRef.current = setInterval(() => {
         setImage(imageArray[getRandomInt(imageArray.length)]);
+        setIsFocused(false);
         console.log("update");
       }, 100);
       console.log("start update");
     }
     else {
       clearInterval(intervalRef.current);
+      setIsFocused(true);
       intervalRef.current = null;
       console.log("stop update");
     }
@@ -60,6 +63,7 @@ function App() {
   // <WindowImage url="https://picsum.photos/1200/1600"/>
   //<WindowImage src={image} />
   // <Memorized onClick={handleOnClick} />
+
 
   return (
     <Box
@@ -70,15 +74,29 @@ function App() {
       }}
       onClick={handleOnClick}
     >
-      <Box sx={{
-        width: "20%",
-        height: "80%",
-        position: "absolute",
-        top: "10%",
-        left: "10%"
-      }}>
-        <WindowImage src={image} />
-      </Box >
+      {
+        isFocused && <Box sx={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          top: "0%",
+          left: "0%"
+        }}>
+          <WindowImage src={image} />
+        </Box >
+      }
+      {
+        !isFocused &&
+        <Box sx={{
+          width: "20%",
+          height: "80%",
+          position: "absolute",
+          top: "10%",
+          left: "10%"
+        }}>
+          <WindowImage src={image} />
+        </Box >
+      }
     </Box>
   );
 }

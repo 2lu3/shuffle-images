@@ -8,8 +8,8 @@ export default function WindowImage(props) {
         width="100%"
         height="100%"
         duration={0}
-        fit="cover"
-        bgColor="grey"
+        fit="contain"
+        bgcolor="#429ef5"
       />
   );
 }
